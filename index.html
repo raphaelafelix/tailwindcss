@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTX Mecatrônica — automação industrial (aula de Tailwind)</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+    
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mec: {
+              bg:     '#1B2024', // fundo — grafite escuro
+              panel:  '#242B30', // painel — um tom mais claro, pros cartões
+              text:   '#E7EAEC', // texto claro sobre o fundo escuro
+              amber:  '#E8B923', // amarelo de sinalização — cor de destaque
+              blue:   '#5B87A0', // azul-aço — cor secundária
+              line:   '#333B40', // bordas e divisores
+            }
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['IBM Plex Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-mec-bg text-mec-text font-body antialiased">
+
+    <header class="sticky top-0 z-50 bg-mec-bg/90 backdrop-blur border-b
+    border-mec-line">
+        <nav class="max-w-6x1 mx-auto flex items-center justify-between px-6 py-4">
+            <a href="#" class="font-display text-2xl font-bold">
+                MTX
+                <span class="text-mec-amber">Mecatrônica</span>
+            </a>
+            <ul id="menu-desktop" class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <li><a href="#solucoes" class="hover:text-mec-amber">Soluções</a></li>
+                <li><a href="#processo" class="hover:text-mec-amber">Processos</a></li>
+                <li><a href="#cliente" class="hover:text-mec-amber">Clientes</a></li>
+                <li><a href="#contato" class="bg-mec-amber text-mec-bg px-4 py-2 rounded-full font-semibold hover:bg-mec-text">Pedir Orçamentos</a></li>
+
+            </ul>
+            <button onclick="toggleMenu()" class="md:hidden p-2" aria-label="Abrir menu">
+                <svg xlmns="https://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 18H16"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+    
+</body>
+</html>
