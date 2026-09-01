@@ -4,56 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTX Mecatrônica — automação industrial (aula de Tailwind)</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
- <script>
-    
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            mec: {
-              bg:     '#1B2024', // fundo — grafite escuro
-              panel:  '#242B30', // painel — um tom mais claro, pros cartões
-              text:   '#E7EAEC', // texto claro sobre o fundo escuro
-              amber:  '#E8B923', // amarelo de sinalização — cor de destaque
-              blue:   '#5B87A0', // azul-aço — cor secundária
-              line:   '#333B40', // bordas e divisores
+    <script>    
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              mec: {
+                bg:     '#1B2024', // fundo — grafite escuro
+                panel:  '#242B30', // painel — um tom mais claro, pros cartões
+                text:   '#E7EAEC', // texto claro sobre o fundo escuro
+                amber:  '#E8B923', // amarelo de sinalização — cor de destaque
+                blue:   '#5B87A0', // azul-aço — cor secundária
+                line:   '#333B40', // bordas e divisores
+              }
+            },
+            fontFamily: {
+              display: ['Space Grotesk', 'sans-serif'],
+              body: ['IBM Plex Sans', 'sans-serif'],
             }
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'sans-serif'],
-            body: ['IBM Plex Sans', 'sans-serif'],
           }
         }
       }
-    }
-  </script>
+    </script>
 </head>
 <body class="bg-mec-bg text-mec-text font-body antialiased">
-
-    <header class="sticky top-0 z-50 bg-mec-bg/90 backdrop-blur border-b
-    border-mec-line">
-        <nav class="max-w-6x1 mx-auto flex items-center justify-between px-6 py-4">
-            <a href="#" class="font-display text-2xl font-bold">
-                MTX
-                <span class="text-mec-amber">Mecatrônica</span>
-            </a>
-            <ul id="menu-desktop" class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <li><a href="#solucoes" class="hover:text-mec-amber">Soluções</a></li>
-                <li><a href="#processo" class="hover:text-mec-amber">Processos</a></li>
-                <li><a href="#cliente" class="hover:text-mec-amber">Clientes</a></li>
-                <li><a href="#contato" class="bg-mec-amber text-mec-bg px-4 py-2 rounded-full font-semibold hover:bg-mec-text">Pedir Orçamentos</a></li>
-
-            </ul>
-            <button onclick="toggleMenu()" class="md:hidden p-2" aria-label="Abrir menu">
-                <svg xlmns="https://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 18H16"></path>
-                </svg>
-            </button>
+    <header class="sticky top-0 z-50 bg-mec-bg/90 backdrop-blur border-b border-mec-line">
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+          <a href="#" class="font-display text-2xl font-bold">
+            MTX
+            <span class="text-mec-amber">Mecatrônica</span>
+          </a>
+          <ul id="menu-desktop" class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <li><a href="#solucoes" class="hover:text-mec-amber transition-colors">Soluções</a></li>
+            <li><a href="#processo" class="hover:text-mec-amber transition-colors">Processos</a></li>
+            <li><a href="#cliente" class="hover:text-mec-amber transition-colors">Clientes</a></li>
+            <li><a href="#contato" class="bg-mec-amber text-mec-bg px-4 py-2 rounded-full font-semibold hover:bg-mec-text transition-colors duration-500 ease-in-out">Pedir Orçamento</a></li>
+          </ul>
+          <button onclick="toggleMenu()" class="md:hidden p-2" aria-label="Abrir menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
         </nav>
+       
+        <ul id="menu-mobile" class="hidden md:hidden flex-col gap-4 px-6 pb-6 text-sm font-medium">
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#contato" class="font-semibold text-mec-amber">Pedir orçamento</a></li>
+        </ul>    
     </header>
-    
+
+    <main>
+      <section class="max-w-6xl mx-auto px-6 py-12 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-white">
+            Mecânica, eletrônica e <span class="text-mec-amber">software</span>, numa peça só.
+          </h1>
+         
+          <p class="text-mec-text/80 text-base sm:text-lg max-w-lg leading-relaxed">
+            Projetamos e integramos sistemas automatizados pra linhas de produção, do sensor ao painel de controle.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#contato" class="bg-mec-amber text-mec-bg font-semibold px-6 py-3 rounded-full hover:bg-white transition-colors duration-300">
+              Pedir orçamento
+            </a>
+            <a href="#solucoes" class="border border-mec-line text-white font-medium px-6 py-3 rounded-full hover:border-mec-amber transition-colors duration-300">
+              Ver soluções
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full aspect-[4/3] bg-[#262B26]/40 rounded-[2.5rem] p-4 border border-[#3A423A]/30 flex items-center justify-center">
+          <div class="w-full h-full bg-[#22272B] rounded-[2rem] border border-mec-line/50 flex items-center justify-center shadow-2xl">
+            <svg class="w-16 h-16 text-[#A0A2BA] animate-spin-slow opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            </svg>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById('menu-mobile');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+      }
+    </script>
 </body>
 </html>
